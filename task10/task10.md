@@ -25,3 +25,18 @@
 * [Flexbox——快速布局神器](http://www.w3cplus.com/css3/flexbox-basics.html)
 * [使用 CSS 弹性盒](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes)
 * [MDN flex属性](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex)
+
+---
+
+## 任务要求
+* 屏幕宽度大于 640px 时，按照四个元素高度的中间对齐，第一个元素紧贴浏览器左边（所有 padding 均为 20px），第四个元素紧贴浏览器右边，其他元素等距离分布。
+* 屏幕宽度小于等于 640px 时，按照四个元素的上方对齐，水平方向均匀分布，如果一行元素的宽度超过浏览器宽度，则被挤到下一排，第四个元素位于最前面。
+
+## 任务要求解析
+* 屏幕宽度 640px：@media (max-width: 640px) {...} (因为是小于等于)
+* 中间对齐：align-items: center;
+* 紧贴、等距离：justify-content: space-between;
+* 上方对齐：align-items: flex-start;
+* 水平方向均匀分布：justify-content: space-around;
+* 挤到下一排：flex-wrap: wrap;
+* 第四个元素最前面：order: -1; (第四个)
