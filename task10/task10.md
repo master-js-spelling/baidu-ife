@@ -37,6 +37,6 @@
 * 中间对齐：align-items: center;
 * 紧贴、等距离：justify-content: space-between;
 * 上方对齐：align-items: flex-start;
-* 水平方向均匀分布：justify-content: space-around;
+* 水平方向均匀分布：~~justify-content: space-around;~~ 看效果图我又觉得还是 space-between
 * 挤到下一排：flex-wrap: wrap;
 * 第四个元素最前面：order: -1; (第四个)
