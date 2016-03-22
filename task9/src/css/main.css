@@ -71,7 +71,7 @@ main {
     background-color: #fff;
     border: 1px solid #cacbcb;
     border-radius: 0;
-    background: #fff url(../images/black_arrow.png) no-repeat 95% 7px;
+    background: #fff url(../images/black_arrow.png) no-repeat 95% center;
     height: 25px; }
   .content_search .search_item {
     width: 135px;
@@ -114,7 +114,7 @@ main {
       border-radius: 4px;
       border: 2px solid #fff; }
   .content_search .blue_arrow {
-    background: #fff url(../images/blue_arrow.png) no-repeat 95% 7px; }
+    background: #fff url(../images/blue_arrow.png) no-repeat 95% center; }
   .content_search .no_arrow {
     background: #fff; }
 
@@ -498,15 +498,15 @@ nav {
       width: 55px;
       height: 55px;
       border-radius: 50%;
-      border: solid #b9babd 1px; }
+      border: solid #b9babd 1px;
+      text-align: center; }
       .user_info .user .head_pic span {
         width: 45px;
         height: 45px;
         border-radius: 50%;
         display: inline-block;
         background-color: #b9babd;
-        vertical-align: middle;
-        margin: 4.5px; }
+        margin-top: 4px; }
     .user_info .user a {
       display: block;
       float: left;
@@ -545,28 +545,28 @@ nav {
     .function_list .reporting a {
       line-height: 35px; }
     .function_list .reporting a.title {
-      background: url(../images/file_open.png) no-repeat 0 7px; }
+      background: url(../images/file_open.png) no-repeat 0 center; }
     .function_list .reporting .folder {
       margin-left: 30px; }
       .function_list .reporting .folder > a {
-        background: url(../images/file_close.png) no-repeat 0 7px; }
+        background: url(../images/file_close.png) no-repeat 0 center; }
       .function_list .reporting .folder .cur {
-        background: url(../images/file_open.png) no-repeat 0 7px; }
+        background: url(../images/file_open.png) no-repeat 0 center; }
     .function_list .reporting .document {
       margin-left: 30px; }
       .function_list .reporting .document > a {
-        background: url(../images/doc_close.png) no-repeat 0 7px; }
+        background: url(../images/doc_close.png) no-repeat 0 center; }
       .function_list .reporting .document .cur {
-        background: url(../images/doc_open.png) no-repeat 0 7px; }
+        background: url(../images/doc_open.png) no-repeat 0 center; }
   .function_list .collection a.title {
-    background: url(../images/star.png) no-repeat 0 7px; }
+    background: url(../images/star.png) no-repeat 0 center; }
   .function_list .sharing a.title {
-    background: url(../images/share.png) no-repeat 0 7px; }
+    background: url(../images/share.png) no-repeat 0 center; }
   .function_list .photos a.title {
-    background: url(../images/star.png) no-repeat 0 7px; }
+    background: url(../images/star.png) no-repeat 0 center; }
   .function_list .recording a.title {
-    background: url(../images/star.png) no-repeat 0 7px; }
+    background: url(../images/star.png) no-repeat 0 center; }
   .function_list .account a.title {
-    background: url(../images/user_info.png) no-repeat 0 7px; }
+    background: url(../images/user_info.png) no-repeat 0 center; }
 
 /*# sourceMappingURL=main.css.map */

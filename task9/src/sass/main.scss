@@ -96,7 +96,7 @@ main {
         background-color: #fff;
         border: 1px solid #cacbcb;
         border-radius: 0;
-        background: #fff url(../images/black_arrow.png) no-repeat 95% 7px;
+        background: #fff url(../images/black_arrow.png) no-repeat 95% center;
         height: 25px;
     }
     .search_item {
@@ -144,7 +144,7 @@ main {
         }
     }
     .blue_arrow {
-        background: #fff url(../images/blue_arrow.png) no-repeat 95% 7px;
+        background: #fff url(../images/blue_arrow.png) no-repeat 95% center;
     }
     .no_arrow {
         background: #fff;
@@ -595,14 +595,14 @@ nav {
             height: 55px;
             border-radius: 50%;
             border: solid #b9babd 1px;
+            text-align: center;
             span {
                 width: 45px;
                 height: 45px;
                 border-radius: 50%;
                 display: inline-block;
                 background-color: #b9babd;
-                vertical-align: middle;
-                margin: 4.5px;
+                margin-top: 4px;
             }
         }
         a {
@@ -653,50 +653,50 @@ nav {
             line-height: 35px;
         }
         a.title {
-            background: url(../images/file_open.png) no-repeat 0 7px;
+            background: url(../images/file_open.png) no-repeat 0 center;
         }
         .folder {
             margin-left: 30px;
             >a {
-                background: url(../images/file_close.png) no-repeat 0 7px;
+                background: url(../images/file_close.png) no-repeat 0 center;
             }
             .cur {
-                background: url(../images/file_open.png) no-repeat 0 7px;
+                background: url(../images/file_open.png) no-repeat 0 center;
             }
         }
         .document {
             margin-left: 30px;
             >a {
-                background: url(../images/doc_close.png) no-repeat 0 7px;
+                background: url(../images/doc_close.png) no-repeat 0 center;
             }
             .cur {
-                background: url(../images/doc_open.png) no-repeat 0 7px;
+                background: url(../images/doc_open.png) no-repeat 0 center;
             }
         }
     }
     .collection {
         a.title {
-            background: url(../images/star.png) no-repeat 0 7px;
+            background: url(../images/star.png) no-repeat 0 center;
         }
     }
     .sharing {
         a.title {
-            background: url(../images/share.png) no-repeat 0 7px;
+            background: url(../images/share.png) no-repeat 0 center;
         }
     }
     .photos {
         a.title {
-            background: url(../images/star.png) no-repeat 0 7px;
+            background: url(../images/star.png) no-repeat 0 center;
         }
     }
     .recording {
         a.title {
-            background: url(../images/star.png) no-repeat 0 7px;
+            background: url(../images/star.png) no-repeat 0 center;
         }
     }
     .account {
         a.title {
-            background: url(../images/user_info.png) no-repeat 0 7px;
+            background: url(../images/user_info.png) no-repeat 0 center;
         }
     }
 }

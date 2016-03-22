@@ -115,8 +115,7 @@ gulp.task('watchsass', function () {
                 .pipe(sourcemaps.init())
                 .pipe(sass.sync().on('error', sass.logError))
                 .pipe(sourcemaps.write('./'))
-                .pipe(gulp.dest(paths.distDir))
-                .pipe(browserSync.stream());
+                .pipe(gulp.dest(paths.distDir));
         }
     });
 });
@@ -157,7 +156,8 @@ gulp.task('watchcss', function () {
                 .pipe(minifycss())
                 // .pipe(rename({ extname: '.min.css' }))
                 .pipe(sourcemaps.write('./'))
-                .pipe(gulp.dest(paths.distDir));
+                .pipe(gulp.dest(paths.distDir))
+                .pipe(browserSync.stream());
         }
     });
 });
