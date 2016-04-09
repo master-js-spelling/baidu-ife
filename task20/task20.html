@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>task20</title>
+  <style>
+  #val {
+    resize: none;
+  }
+
+  .item {
+    display: inline-block;
+    margin: 5px;
+    min-width: 40px;
+    height: 40px;
+    background-color: #ff0000;
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <textarea id="val"></textarea>
+    <input type="button" id="in-left" value="左侧入">
+    <input type="button" id="in-right" value="右侧入">
+    <input type="button" id="del-left" value="左侧出">
+    <input type="button" id="del-right" value="右侧出">
+    <input type="text" id="key">
+    <input type="button" id="search" value="给我搜">
+    <div id="queue"></div>
+  </div>
+  <script type="text/javascript">
+    window.onload = function() {
+      $ = function(selector) {
+        return document.querySelector(selector);
+      }
+
+      //获取DOM
+      var inLeft = $("#in-left"),
+          inRight = $("#in-right"),
+          delLeft = $("#del-left"),
+          delRight = $("#del-right"),
+          queueCon = $("#queue"),
+          input = $("#val");
+          
+
+      //左侧加入队列
+      inLeft.addEventListener("click", function() {
+        var val = parseFloat(input.value.trim());
+        input.value = "";
+
+        if(isNaN(val))
+          return;
+
+        var newNode = createNode(val);
+        queueCon.insertBefore(newNode, queueCon.firstChild);
+      });
+
+      //左侧删除元素
+      delLeft.addEventListener("click", function() {
+        if(queueCon.childElementCount === 0)
+          return;
+
+        queueCon.removeChild(queueCon.firstChild);
+      });
+
+      //左侧删除元素
+      delRight.addEventListener("click", function() {
+        if(queueCon.childElementCount === 0)
+          return;
+
+        queueCon.removeChild(queueCon.lastChild);
+      });
+
+      //右侧加入队列
+      inRight.addEventListener("click", function() {
+        var val = parseFloat(input.value.trim());
+        input.value = "";
+
+        if(isNaN(val))
+          return;
+
+        var newNode = createNode(val);
+        queueCon.appendChild(newNode);
+      });
+
+      //点击队列中某个元素将其删除,事件委托给父元素
+      queueCon.addEventListener("click", function(event) {
+        var t = event.target;
+        //判断是不是点击的元素而不是元素外面的区域
+        if(t.className != "item")
+          return;
+
+        queueCon.removeChild(t);
+      });
+
+      function getValue() {
+        
+      }
+
+      /**
+       * createNode
+       * @param  {[Number]} val 要构建的新元素中显示的值，数值型
+       * @return {[Element]}    要插入的元素
+       */
+      function createNode(val) {
+        var node = document.createElement("div");
+        node.className = "item";
+        node.innerHTML = val;
+        return node;
+      }
+
+
+    }
+  </script>
+</body>
+</html>
