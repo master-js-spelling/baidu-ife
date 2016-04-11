@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>task20</title>
   <style>
-  #val {
+  #input {
     resize: none;
   }
 
@@ -13,7 +13,7 @@
     margin: 5px;
     min-width: 40px;
     height: 40px;
-    background-color: #ff0000;
+    background-color: #55acee;
     color: #ffffff;
     font-size: 20px;
     line-height: 40px;
@@ -23,7 +23,7 @@
 </head>
 <body>
   <div class="container">
-    <textarea id="val"></textarea>
+    <textarea id="input"></textarea>
     <input type="button" id="in-left" value="左侧入">
     <input type="button" id="in-right" value="右侧入">
     <input type="button" id="del-left" value="左侧出">
@@ -38,54 +38,73 @@
         return document.querySelector(selector);
       }
 
-      //获取DOM
-      var inLeft = $("#in-left"),
-          inRight = $("#in-right"),
-          delLeft = $("#del-left"),
-          delRight = $("#del-right"),
-          queueCon = $("#queue"),
-          input = $("#val");
-          
+      var queueCon = $("#queue");
+      var data = [];
+
 
       //左侧加入队列
-      inLeft.addEventListener("click", function() {
-        var val = parseFloat(input.value.trim());
-        input.value = "";
+      $("#in-left").addEventListener("click", function() {
+        var val = getValue(),
+            node,
+            prev;
+        $("#input").value = "";
 
-        if(isNaN(val))
+        if(val.length === 0)
           return;
 
-        var newNode = createNode(val);
-        queueCon.insertBefore(newNode, queueCon.firstChild);
+        [].unshift.apply(data, val);
+        prev = queueCon.firstChild;
+        val.forEach(function(item) {
+          node = createNode(item);
+          queueCon.insertBefore(node, prev);
+        });
       });
 
       //左侧删除元素
-      delLeft.addEventListener("click", function() {
+      $("#del-left").addEventListener("click", function() {
         if(queueCon.childElementCount === 0)
           return;
 
         queueCon.removeChild(queueCon.firstChild);
+        data.shift();
       });
 
-      //左侧删除元素
-      delRight.addEventListener("click", function() {
+      //右侧删除元素
+      $("#del-right").addEventListener("click", function() {
         if(queueCon.childElementCount === 0)
           return;
 
         queueCon.removeChild(queueCon.lastChild);
+        data.pop();
       });
 
       //右侧加入队列
-      inRight.addEventListener("click", function() {
-        var val = parseFloat(input.value.trim());
-        input.value = "";
+      $("#in-right").addEventListener("click", function() {
+        var val = getValue(),
+            node;
+        $("#input").value = "";
 
-        if(isNaN(val))
+        if(val.length === 0)
           return;
 
-        var newNode = createNode(val);
-        queueCon.appendChild(newNode);
+        [].push.apply(data, val);
+
+        val.forEach(function(item) {
+          node = createNode(item);
+          queueCon.appendChild(node);
+        });
       });
+
+      $("#search").addEventListener("click", function() {
+        var key = $("#key").value.trim();
+
+        if(key == "")
+          return;
+
+        data.forEach(function(item, index) {
+          queueCon.children[index].style.color = item.indexOf(key) == -1 ? "#ffffff" : "red";
+        });
+      })
 
       //点击队列中某个元素将其删除,事件委托给父元素
       queueCon.addEventListener("click", function(event) {
@@ -93,12 +112,23 @@
         //判断是不是点击的元素而不是元素外面的区域
         if(t.className != "item")
           return;
-
+        for(var i = 0; i < queueCon.children.length; i ++) {
+          if(queueCon.children[i] == t) {
+            data.splice(i, 1);
+            break;
+          }
+        }
         queueCon.removeChild(t);
       });
 
       function getValue() {
-        
+        var str = $("#input").value.trim();
+        var val = str.split(/[^0-9a-zA-Z\u4e00-\u9fa5]+/).filter(
+          function(cur) {
+            return cur != null && cur != "" ? true : false;
+          });
+
+        return val;
       }
 
       /**
@@ -112,7 +142,6 @@
         node.innerHTML = val;
         return node;
       }
-
 
     }
   </script>
