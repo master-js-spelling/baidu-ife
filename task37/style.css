@@ -1,0 +1,87 @@
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Microsoft YaHei";
+}
+
+.dialog-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.dialog {
+  width: 400px;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  box-shadow: 0 0 10px #cccccc;
+  background-color: #ffffff;
+  border-radius: 5px;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-animation: slide-in .5s;
+          animation: slide-in .5s;
+}
+
+@keyframes slide-in {
+  from { margin-top: 50px; opacity: 0;}
+  to {margin-top: 0px; opacity: 1;}
+}
+
+@-webkit-keyframes slide-in {
+  from { margin-top: 50px; opacity: 0;}
+  to {margin-top: 0px; opacity: 1;}
+}
+
+@-moz-keyframes slide-in {
+  from { margin-top: 50px; opacity: 0;}
+  to {margin-top: 0px; opacity: 1;}
+}
+
+.dialog h2 {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 40px;
+  font-size: 20px;
+  font-weight: normal;
+  background-color: #fd9f28;
+  color: #ffffff;
+  border-radius: 5px 5px 0 0;
+}
+
+.dialog p {
+  padding: 10px 20px;
+  color: #666666;
+}
+
+.dialog .bar {
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.dialog .btn {
+  display: inline-block;
+  float: right;
+  margin-right: 20px;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #ff9d02;
+  font-size: 16px;
+}
+
+.dialog .btn:hover {
+  cursor: pointer;
+  box-shadow: 0 0 5px #ccc;
+}
